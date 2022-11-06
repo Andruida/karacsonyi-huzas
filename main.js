@@ -36,6 +36,9 @@ function submit() {
 
     if (!valid) return false;
 
+    $("#loading").show()
+    $("#submitBtn").attr("disabled", true)
+
     $.ajax({
         method: "POST",
         data: {
@@ -50,10 +53,14 @@ function submit() {
             emailField.val("")
             nameField.val("")
             wishField.val("")
+            $("#loading").hide()
+            $("#submitBtn").attr("disabled", false)
         },
         error: function(jqXHR, textStatus, errorThrown) {
             var modal = new bootstrap.Modal("#errorModal", {})
             modal.show();
+            $("#loading").hide()
+            $("#submitBtn").attr("disabled", false)
         }
     })
 }
