@@ -28,6 +28,13 @@ CREATE PROCEDURE `draw` ()  COMMENT 'Húzás eljárása. Felülírja az előző 
   END WHILE;
 END$$
 
+CREATE PROCEDURE `participants` ()  READS SQL DATA
+BEGIN
+
+SELECT name, CHAR_LENGTH(wish) as `szöveghossz`, wish FROM `wishes` w JOIN users u ON w.user_id = u.id;
+
+END$$
+
 DELIMITER ;
 
 CREATE TABLE `link` (
@@ -38,7 +45,8 @@ CREATE TABLE `link` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(300) NOT NULL,
-  `name` text NOT NULL
+  `name` text NOT NULL,
+  `nickname` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `wishes` (

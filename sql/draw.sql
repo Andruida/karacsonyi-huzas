@@ -1,7 +1,7 @@
 -- Húzás eljárása. Felülírja az előző húzás eredményét!
 
 DELIMITER $$
-CREATE DEFINER=`root`@`%` PROCEDURE `draw` ()  COMMENT 'Húzás eljárása. Felülírja az előző húzás eredményét!' BEGIN
+CREATE PROCEDURE `draw` ()  COMMENT 'Húzás eljárása. Felülírja az előző húzás eredményét!' BEGIN
   DECLARE i INT DEFAULT 0;
 
   TRUNCATE `link`;

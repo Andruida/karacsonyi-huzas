@@ -1,0 +1,14 @@
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "Dockerfile*">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "docker-compose*">
+    Order Allow,Deny
+    Deny from all
+</Files>
